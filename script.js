@@ -21,14 +21,21 @@ const game = {
     scissors: "Paper"
 }
 
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-        return "It's a tie!";
-    } else if (game[humanChoice] === computerChoice) {
-        humanScore += 1;
-        return `You win! ${humanChoice} beats ${computerChoice}`;
-    } else {
-        computerScore += 1;
-        return `You lose! ${computerChoice} beats ${humanChoice}`;
-    }
-}
+const btn = document.querySelectorAll('button');
+
+btn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        let humanChoice = btn.textContent;
+        let computerChoice = getComputerChoice();
+
+        if (humanChoice === computerChoice) {
+            console.log("It's a tie!");
+        } else if (game[humanChoice] === computerChoice) {
+            humanScore += 1;
+            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        } else {
+            computerScore += 1;
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        }
+    })
+})
