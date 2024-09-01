@@ -38,3 +38,12 @@ function playRound(humanChoice, computerChoice) {
 }
 
 // Loop the game n times
+function playGame(n) {
+    for (let i = 0; i < n; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        console.log(playRound(humanSelection, computerSelection));
+    }
+}
+
+playGame(5);
