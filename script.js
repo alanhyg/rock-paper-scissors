@@ -10,19 +10,6 @@ function getComputerChoice() {
     }
 }
 
-// Prompt for user input, not case-sensitive
-function getHumanChoice() {
-    let option = ["rock", "paper", "scissors"];
-    let choice;
-
-    do {
-        choice = prompt("Rock, paper or scissors: ").trim().toLowerCase();
-    }
-    while (!option.includes(choice));
-
-    return choice.charAt(0).toUpperCase() + choice.slice(1);
-}
-
 // Declare score tracking system
 let humanScore = 0;
 let computerScore = 0;
@@ -45,23 +32,3 @@ function playRound(humanChoice, computerChoice) {
         return `You lose! ${computerChoice} beats ${humanChoice}`;
     }
 }
-
-// Loop the game n times
-function playGame(n) {
-    for (let i = 0; i < n; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        console.log(playRound(humanSelection, computerSelection));
-    }
-
-    // Declare winner
-    if (humanScore > computerScore) {
-        console.log("Congratulations! You win!");
-    } else if (humanScore < computerScore) {
-        console.log("Game Over. You lose!");
-    } else {
-        console.log("Tie! Better luck next time!");
-    }
-}
-
-playGame(5);
