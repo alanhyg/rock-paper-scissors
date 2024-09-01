@@ -10,13 +10,15 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice());
-
-// Prompt for user input
-
+// Prompt for user input, not case-sensitive
+function getHumanChoice() {
+    let choice = prompt("Rock, paper or scissors: ");
+    return choice.toLowerCase();
+}
 
 // Declare score tracking system
-
+let humanScore = 0;
+let computerScore = 0;
 
 // Write the game process
 
