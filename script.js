@@ -16,26 +16,29 @@ let computerScore = 0;
 
 // Write the game process
 const game = {
-    rock: "Scissors",
-    paper: "Rock",
-    scissors: "Paper"
+    Rock: "Scissors",
+    Paper: "Rock",
+    Scissors: "Paper"
 }
 
 const btn = document.querySelectorAll('button');
+const dvr = document.querySelector('#result');
 
 btn.forEach((btn) => {
     btn.addEventListener('click', () => {
         let humanChoice = btn.textContent;
+        console.log(humanChoice);
+
         let computerChoice = getComputerChoice();
 
         if (humanChoice === computerChoice) {
-            console.log("It's a tie!");
+            dvr.textContent = `It's a tie! ${humanScore} - ${computerScore}`;
         } else if (game[humanChoice] === computerChoice) {
             humanScore += 1;
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            dvr.textContent = `You win! ${humanScore} - ${computerScore}`;
         } else {
             computerScore += 1;
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            dvr.textContent = `You lose! ${humanScore} - ${computerScore}`;
         }
-    })
-})
+    });
+});
