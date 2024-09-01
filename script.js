@@ -12,8 +12,15 @@ function getComputerChoice() {
 
 // Prompt for user input, not case-sensitive
 function getHumanChoice() {
-    let choice = prompt("Rock, paper or scissors: ");
-    return choice.charAt(0).toUpperCase() + choice.slice(1).toLowerCase();
+    let option = ["rock", "paper", "scissors"];
+    let choice;
+
+    do {
+        choice = prompt("Rock, paper or scissors: ").trim().toLowerCase();
+    }
+    while (!option.includes(choice));
+
+    return choice.charAt(0).toUpperCase() + choice.slice(1);
 }
 
 // Declare score tracking system
