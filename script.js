@@ -40,5 +40,18 @@ btn.forEach((btn) => {
             computerScore += 1;
             dvr.textContent = `You lose! ${humanScore} - ${computerScore}`;
         }
+
+        if (humanScore === 5) {
+            dvr.textContent = "Congratulations! You win!";
+            reset();
+        } else if (computerScore === 5) {
+            dvr.textContent = "Game over. You lose!";
+            reset();
+        }
     });
 });
+
+function reset() {
+    humanScore = 0;
+    computerScore = 0;
+}
